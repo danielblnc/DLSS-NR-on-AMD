@@ -8,9 +8,10 @@ Get `dlssnr_on_amd_setup.exe` from the [latest release](../../releases/latest).
 
 ## Install
 
-1. Place `dlssnr_on_amd_setup.exe` in the game folder, for Cyberpunk 2077 that is `bin\x64`.
-2. Get a copy of `nvngx_dlssnr.dll` (DLSS 5 Neural Rendering, build 310.8.0.0, you can get it from games that support DLSS 5) and place it in the game folder.
-3. Start the game and **enable FSR** (any FSR 3 / FSR 4 works, any quality / FSRAA). Press **End** to open the overlay.
+1. Place `dlssnr_on_amd_setup.exe` in the game exe folder, for Cyberpunk 2077 that is `bin\x64`.
+2. Get a copy of `nvngx_dlssnr.dll` (DLSS 5 Neural Rendering, build 310.8.0.0, you can get it from games that support DLSS 5) and place it in the same folder.
+3. Run `dlssnr_on_amd_setup.exe` and follow the instructions.
+4. Start the game and **enable FSR** (any FSR 3 / FSR 4 works, any quality / FSRAA). Press **End** to open the overlay.
 
 Run `dlssnr_on_amd_setup.exe` again to **update** (U) or **remove** (R).
 
