@@ -1,4 +1,4 @@
-# Danielblnc's DLSS-NR on AMD
+# DLSS-NR on AMD
 
 Run **DLSS 5 Neural Rendering** on **AMD Radeon RX 9000 (RDNA4)** cards, in any DirectX 12 game that uses FSR.
 
@@ -16,7 +16,9 @@ Run `dlssnr_on_amd_setup.exe` again to **update** (U) or **remove** (R).
 
 ## What to expect
 
-Performance is very WIP. Runs at 10 fps at 1080p on an RX 9070 XT, or 5 fps at 3440x1440. I'm improving performance every day, goal is to get it to run as fast as a 5070Ti. Check back for new releases.
+Output quality is very similar to what the official DLSS gets, though there are still some effects that may not be working 100%.
+
+Performance is still WIP: roughly 28 fps at 1080p on an RX 9070 XT. I'm improving performance every day, goal is to get it to run as fast as a 5070Ti. Check back for new releases.
 
 ## In-game overlay
 
