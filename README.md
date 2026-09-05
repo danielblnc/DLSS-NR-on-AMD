@@ -2,6 +2,8 @@
 
 Run **DLSS 5 Neural Rendering** on **AMD Radeon RX 9000 (RDNA4) and 7000 (RDNA3)** cards, in any DirectX 12 game that uses FSR.
 
+Join the [Discord](https://discord.gg/5gCwc6mskc) for support, early access to new mod builds and testing.
+
 ## Download
 
 Get `dlssnr_on_amd_setup.exe` from the [latest release](../../releases/latest).
