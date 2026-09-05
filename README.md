@@ -1,6 +1,6 @@
 # DLSS-NR on AMD
 
-Run **DLSS 5 Neural Rendering** on **AMD Radeon RX 9000 (RDNA4)** cards, in any DirectX 12 game that uses FSR.
+Run **DLSS 5 Neural Rendering** on **AMD Radeon RX 9000 (RDNA4) and 7000 (RDNA3)** cards, in any DirectX 12 game that uses FSR.
 
 ## Download
 
@@ -17,9 +17,9 @@ Run `dlssnr_on_amd_setup.exe` again to **update** (U) or **remove** (R).
 
 ## What to expect
 
-Output quality is very similar to what the official DLSS gets, though there are still some effects that may not be working 100%.
+Output quality is very similar to what DLSS produces on the original hardware, though there are still some effects that may not be working 100%.
 
-Performance is still WIP: roughly 28 fps at 1080p on an RX 9070 XT. I'm improving performance every day, goal is to get it to run as fast as a 5070Ti. Check back for new releases.
+Performance is still a work in progress: roughly 31 FPS at 1080p on an RX 9070 XT. I'm improving performance every day, goal is to get it to run as fast as a 5070Ti. Check back for new releases.
 
 ## In-game overlay
 
@@ -29,15 +29,15 @@ Options: Mode (inline / async, for photo mode only), Tone intensity, Structure i
 ## Requirements
 
 - Windows 11, DirectX 12 game with FSR. Vulkan is planned for a later release. Tested on Cyberpunk and GTA V Enhanced.
-- An AMD Radeon RX 9000 series GPU (tested on a 9070 XT). RX 7000 series cards are untested, reports are welcome. Older GPUs are not supported.
-- A recent Adrenalin driver
+- An AMD Radeon RX 9000 series GPU (tested on a 9070 XT). RX 7000 series cards should work, reports are welcome. Older GPUs are not currently supported.
+- Installed Adrenalin driver 26.1.1 or later
 - Your own copy of `nvngx_dlssnr.dll` version 310.8.0.0
 - Games with anti-cheat will block the DLL; use them only with anti-cheat off.
 
 ## How can I help?
 
 Two ways:
-- Donate. Tokens are expensive, and GPUs to test are even more expensive. Donate here: [ko-fi.com/danielblnc](https://ko-fi.com/danielblnc)
+- Donate. Tokens are expensive, and GPUs to test my mods on are even more expensive. Donate here: [ko-fi.com/danielblnc](https://ko-fi.com/danielblnc)
 - Test and report. Try on your 7000 GPU or other games, open an issue and attach `dlssnr_on_amd.log` if you encounter any problems.
 
 ## Legal
