@@ -42,6 +42,10 @@ Two ways:
 - Donate. Tokens are expensive, and GPUs to test my mods on are even more expensive. Donate here: [ko-fi.com/danielblnc](https://ko-fi.com/danielblnc)
 - Test and report. Try on your 7000 GPU or other games, open an issue and attach `dlssnr_on_amd.log` if you encounter any problems.
 
+## FAQ
+
+- **Is this a compatibility layer?** No. This is a ground-up, full reimplementation of the neural network runtime for AMD GPU architectures (HIP kernels, memory layouts, game integration), written from scratch. No NVIDIA code is included or translated at runtime.
+
 ## Legal
 
 This project is not affiliated with or endorsed by NVIDIA or AMD. DLSS is a trademark of NVIDIA Corporation. The software here contains no NVIDIA code or data; it requires the user's own legitimately obtained copy of the DLSS 5 DLL. Provided as-is, without warranty; use at your own risk.
