@@ -21,7 +21,7 @@ Run `dlssnr_on_amd_setup.exe` again to **update** (U) or **remove** (R).
 
 Output quality is very similar to what DLSS produces on the original hardware, though there are still some effects that may not be working 100%.
 
-Performance is still a work in progress: roughly 31 FPS at 1080p on an RX 9070 XT. I'm improving performance every day, goal is to get it to run as fast as a 5070Ti. Check back for new releases.
+Performance is still a work in progress: roughly 33 FPS at 1080p on an RX 9070 XT. I'm improving performance every day, goal is to get it to run as fast as a 5070Ti. Check back for new releases.
 
 ## In-game overlay
 
