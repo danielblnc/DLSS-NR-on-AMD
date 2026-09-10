@@ -6,7 +6,7 @@ Join the [Discord](https://discord.gg/5gCwc6mskc) for support, early access to n
 
 ## Download
 
-Get `dlssnr_on_amd_setup.exe` from the [latest release](../../releases/latest).
+Get `dlssnr_on_amd_setup.exe` from the [official latest release](https://github.com/danielblnc/DLSS-NR-on-AMD/releases/latest).
 
 ## Install
 
@@ -16,6 +16,8 @@ Get `dlssnr_on_amd_setup.exe` from the [latest release](../../releases/latest).
 4. Start the game and **enable FSR** (any FSR 3 / FSR 4 works, any quality / FSRAA). Press **End** to open the overlay.
 
 Run `dlssnr_on_amd_setup.exe` again to **update** (U) or **remove** (R).
+
+If installation succeeds but the overlay does not open, FSR is not detected, or performance is lower than expected, see the [troubleshooting and performance reporting guide](docs/TROUBLESHOOTING.md).
 
 ## What to expect
 
@@ -40,7 +42,7 @@ Options: Mode (inline / async, for photo mode only), Tone intensity, Structure i
 
 Two ways:
 - Donate. Tokens are expensive, and GPUs to test my mods on are even more expensive. Donate here: [ko-fi.com/danielblnc](https://ko-fi.com/danielblnc)
-- Test and report. Try on your 7000 GPU or other games, open an issue and attach `dlssnr_on_amd.log` if you encounter any problems.
+- Test and report. Try on your 7000 GPU or other games. If you encounter problems, [open a bug or performance report](https://github.com/danielblnc/DLSS-NR-on-AMD/issues/new?template=bug-report.yml) with your game, GPU, driver and mod versions, reproduction steps, and `dlssnr_on_amd.log`. For performance reports, follow the [comparison procedure](docs/TROUBLESHOOTING.md#compare-performance) so results can be reproduced.
 
 ## FAQ
 
