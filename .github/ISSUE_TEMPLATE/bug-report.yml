@@ -1,0 +1,134 @@
+name: Bug or performance report
+description: Report installation, compatibility, rendering, or performance problems.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please search the [existing issues](https://github.com/danielblnc/DLSS-NR-on-AMD/issues) for the same game and symptom before opening a new report.
+        See the [troubleshooting and performance reporting guide](https://github.com/danielblnc/DLSS-NR-on-AMD/blob/master/docs/TROUBLESHOOTING.md) for installation checks and comparable performance measurements.
+        If you cannot find a requested detail, enter "Unknown" and explain what you checked.
+
+  - type: dropdown
+    id: symptom
+    attributes:
+      label: Main symptom
+      options:
+        - Installation failure
+        - Overlay does not open
+        - FSR not detected or no visible effect
+        - Crash or black screen
+        - Visual artifacts
+        - Low FPS or stuttering
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: mod-version
+    attributes:
+      label: DLSS-NR-on-AMD version
+      description: Enter the exact release or build from the installer or log, rather than "latest". Include the last working version if this is a regression.
+      placeholder: Release tag, build if available, and last working version
+    validations:
+      required: true
+
+  - type: input
+    id: game
+    attributes:
+      label: Game and version
+      description: Include the store or launcher and the game executable you installed beside.
+      placeholder: Game title, game version, store, executable name
+    validations:
+      required: true
+
+  - type: input
+    id: gpu
+    attributes:
+      label: GPU and VRAM
+      description: Give the exact model and VRAM size. List any other GPUs, including integrated graphics, and identify the GPU running the game if known.
+      placeholder: Exact GPU model, VRAM size, any additional GPUs
+    validations:
+      required: true
+
+  - type: textarea
+    id: system
+    attributes:
+      label: Driver and system
+      description: Include the Adrenalin driver version and Windows version/build. CPU and RAM are helpful for performance reports.
+      placeholder: |
+        Adrenalin driver version:
+        Windows version/build:
+        CPU:
+        System RAM:
+    validations:
+      required: true
+
+  - type: textarea
+    id: graphics
+    attributes:
+      label: Graphics settings and other mods
+      description: Include the actual graphics API, FSR settings, NVIDIA DLL version, and any other mods or overlays. Say "None" if no other mods are installed.
+      placeholder: |
+        Graphics API:
+        FSR version and quality preset (or FSRAA):
+        Native FSR or provided by another mod:
+        Output resolution:
+        Render resolution/scale (if known):
+        Graphics preset and ray tracing:
+        Frame generation:
+        Dynamic resolution:
+        HDR:
+        VSync / FPS cap:
+        nvngx_dlssnr.dll version:
+        Other mods/overlays and versions:
+    validations:
+      required: true
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Overlay mode
+      description: Use inline for gameplay comparisons. The README describes async as a photo-mode option.
+      options:
+        - Inline
+        - Async
+        - Cannot open overlay / unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: What happened and how to reproduce it
+      description: Include the expected result, actual result, error text, and how often the problem occurs. For image defects, attach screenshots if possible.
+      placeholder: |
+        Steps to reproduce (scene/save location and actions):
+        Expected result:
+        Actual result / error text:
+        How often it happens:
+        Does it also happen with the mod disabled or removed?
+        Overlay intensity settings (if accessible):
+    validations:
+      required: true
+
+  - type: textarea
+    id: performance
+    attributes:
+      label: Performance measurements (for low FPS or stuttering)
+      description: Follow the guide above and compare the same scene and settings with the mod disabled and enabled. Leave blank for other problems; explain here if measurements are unavailable.
+      placeholder: |
+        Scene / benchmark:
+        Measurement tool, warm-up and measurement duration:
+        How the mod was disabled for the baseline:
+        Baseline FPS / frame time (include units and repeated runs):
+        Enabled FPS / frame time (include units and repeated runs):
+        Timing labels and values from the log or overlay (if available):
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log and supporting files
+      description: Attach dlssnr_on_amd.log from a run reproducing the issue (a .txt copy is fine). Review personal information in file paths before posting. If no log was created or you cannot attach it, explain why and include any installer error text.
+      placeholder: Drop the log here, paste relevant output, or explain why it is unavailable.
+    validations:
+      required: true
