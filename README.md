@@ -42,6 +42,13 @@ Two ways:
 - Donate. Tokens are expensive, and GPUs to test my mods on are even more expensive. Donate here: [ko-fi.com/danielblnc](https://ko-fi.com/danielblnc)
 - Test and report. Try on your 7000 GPU or other games, open an issue and attach `dlssnr_on_amd.log` if you encounter any problems.
 
+## Linux proof of concept
+
+The [Linux and Proton investigation notes](docs/LINUX-PORTING.md) describe an
+incomplete RX 9070 XT experiment. Resident Evil Requiem reached native HIP
+dispatch with a diagnostic v0.2.17 build, but its rendered output was incorrect.
+This is not a supported Linux release.
+
 ## FAQ
 
 - **Is this a compatibility layer?** No. This is a ground-up, full reimplementation of the neural network runtime for AMD GPU architectures (HIP kernels, memory layouts, game integration), written from scratch. No NVIDIA code is included or translated at runtime.
