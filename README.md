@@ -1,5 +1,7 @@
 # DLSS-NR on AMD
 
+[English](README.md) | [简体中文](README_zh-CN.md)
+
 Run **DLSS 5 Neural Rendering** on **AMD Radeon RX 9000 (RDNA4), 7000 (RDNA3) and 6000 (RDNA2)** cards, in any DirectX 12 game that uses FSR, DLSS or XeSS.
 
 **NEW IN 0.8.0**: Every main DLSS feature is now fully ported. DLSS Super Resolution, DLSS Ray Reconstruction, DLSS Frame Generation and of course, DLSS Neural Rendering now work on every RDNA4 and RDNA3 GPU. RDNA2 is in testing, supports NR for now, and will receive most of the missing features in the next big release.
