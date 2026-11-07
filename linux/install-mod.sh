@@ -92,14 +92,21 @@ echo "Installing stub as version.dll and amdhip64_7.dll into $GDIR..."
 cp -f "$STUB_SRC" "$GDIR/version.dll"
 cp -f "$OUT_DIR/x86_64-windows/amdhip64_7.dll" "$GDIR/amdhip64_7.dll"
 
-# Optional: copy nvngx_dlssnr.dll if available locally
-for f in "$PWD/nvngx_dlssnr.dll" "$BASE_DATA/nvngx_dlssnr.dll"; do
-    if [ -f "$f" ]; then
-        echo "Found nvngx_dlssnr.dll, copying into $GDIR..."
-        cp -f "$f" "$GDIR/nvngx_dlssnr.dll"
-        break
-    fi
+# Optional: copy DLSS libraries (nvngx_*.dll) and index.ini if available locally
+for dll in nvngx_dlssnr.dll nvngx_dlss.dll nvngx_dlssd.dll nvngx_dlssg.dll; do
+    for src in "$PWD/$dll" "$BASE_DATA/$dll"; do
+        if [ -f "$src" ]; then
+            echo "Found $dll, copying into game directory and prefix data store..."
+            cp -f "$src" "$GDIR/$dll"
+            cp -f "$src" "$PFX/drive_c/NeuralHub/data/$dll"
+            break
+        fi
+    done
 done
+
+if [ -f "$BASE_DATA/index.ini" ]; then
+    cp -f "$BASE_DATA/index.ini" "$PFX/drive_c/NeuralHub/data/index.ini"
+fi
 
 # 6. Configure prefix registry
 echo "Configuring registry in $PFX..."
