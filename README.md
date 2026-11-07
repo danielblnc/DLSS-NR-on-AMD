@@ -38,6 +38,34 @@ End key to open. Up/Down/Left/Right to adjust, Enter toggles, PgUp/Down for prev
 - Your own copy of the mentioned DLLs
 - Games with anti-cheat will block the DLL; use them only with anti-cheat off.
 
+## Linux (experimental)
+
+`linux/neuralhub-wine.sh` runs the manager itself on Linux through Wine + WebView2 and points it at your native Steam library:
+
+```sh
+linux/neuralhub-wine.sh ~/Downloads/NeuralHub_v0.8.0_setup.exe
+```
+
+To install the mod runtime, genuine `cabinet.dll`, and the HIP bridge into any Proton game:
+
+```sh
+# 1. Build the HIP bridge
+linux/hipbridge/build.sh
+
+# 2. Deploy to game binaries folder and Proton prefix
+linux/install-mod.sh /path/to/game/Binaries/Win64 /path/to/compatdata/<appid>/pfx
+
+# 3. Launch the game through Steam with Launch Options:
+WINEDLLPATH="/path/to/DLSS-NR-on-AMD/linux/hipbridge/out" WINEDLLOVERRIDES="version=n,b;cabinet=n,b;amdhip64_7=n,b" %command%
+```
+
+In-game under Proton (`WINEDLLOVERRIDES="version=n,b"`), the stub, host hooks, and bundled FSR 4.1.1 upscaler load, and replacing Proton's builtin `cabinet.dll` with a native Windows copy (`cabinet=n,b`) gets past the initial `CreateDecompressor(LZMS)` failure to unpack the embedded `gfx*` code objects:
+
+1. **D3D12 compute backend:** `neuralhub_host.dll` carries no DXIL shaders — it cross-compiles its AMDGPU HSA code objects at runtime through AMD's Windows driver extension (`amdxc64.dll` → `IAmdExtD3DDevice7`), which vkd3d-proton does not implement (`0x80004002` / `E_NOINTERFACE`). Wine's `amdxc64.dll` is a stub whose `AmdExtD3DDevice8_QueryInterface` (`0x180002470`) returns `0x80004002` unconditionally, and the release build compiles the Vulkan compute backend out (`DLSSNR_BUILD_PROFILE=release`).
+2. **HIP fallback backend (`linux/hipbridge/`):** `linux/hipbridge/build.sh` builds a Wine builtin `amdhip64_7.dll` (PE) + `amdhip64_7.so` (unixlib) that forwards all 49 HIP symbols used by `neuralhub_host.dll` to native Linux ROCm (`libamdhip64.so`), hooks `win32u`'s `vkAllocateMemory` so vkd3d-proton shared D3D12 buffers are exported as DMA-BUFs, and unwraps Win32 shared `HANDLE`s via `d3dkmt_open_resource` + `d3dkmt_object_get_fd` in `hipImportExternalMemory`. With this bridge (`WINEDLLPATH=.../linux/hipbridge/out`, `WINEDLLOVERRIDES="version=n,b;cabinet=n,b;amdhip64_7=n,b"`), `neuralhub_host.dll` loads the HIP runtime in-game under Proton, registers all 4 fat binaries (360 kernels, 11 device variables), passes its GPU queue alignment probe on `gfx1200`, and enables the HIP compute backend (`compute: the HIP runtime serves every addon in this process`). Note that DLSS-FG in v0.8.0 requires the D3D12 compute backend, while DLSS-NR runs on the HIP backend once `nvngx_dlssnr.dll` (310.8.0.0+) weights are imported.
+
+Vulkan and native Linux support are planned (see Requirements).
+
 ## How can I help?
 
 Two ways:
